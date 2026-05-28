@@ -1,0 +1,42 @@
+@model List<Lesson_3._5.Models.Book>
+
+@{
+    ViewData["Title"] = "Danh sách sách";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Danh sách sách</h1>
+
+    <a href="@Url.Action("Add", "Book")" class="btn btn-primary mb-3">Thêm sách mới</a>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Tên sách</th>
+                    <th>Giá</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Id</td>
+                        <td>@book.Name</td>
+                        <td>$@book.Price</td>
+                        <td>
+                            <a href="@Url.Action("Detail", "Book", new { id = book.Id })" class="btn btn-sm btn-info">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Không có sách nào.</p>
+    }
+</div>

@@ -1,0 +1,24 @@
+@model Lesson_3._5.Models.Book
+
+@{
+    ViewData["Title"] = "Chi tiết sách";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Chi tiết sách</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">
+                <strong>Id:</strong> @Model.Id<br>
+                <strong>Giá:</strong> $@Model.Price<br>
+                <strong>Mô tả:</strong> @Model.Description
+            </p>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="@Url.Action("Index", "Book")" class="btn btn-secondary">Quay lại danh sách</a>
+    </div>
+</div>
